@@ -11,7 +11,10 @@ class Route
   end
 # Может удалять промежуточную станцию из списка
   def delete_station(station)
-    @stations.delete(station) if station != @stations.first && station != @stations.last
+    @stations.delete(station) if check_station
+  end
+  def check_station
+    station != @stations.first && station != @stations.last
   end
 # Может выводить список всех станций по-порядку от начальной до конечной
   def list_station

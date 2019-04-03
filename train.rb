@@ -31,14 +31,14 @@ class Train
   end
 # Может перемещаться между станциями, указанными в маршруте. Перемещение возможно вперед и назад, но только на 1 станцию за раз.
   def go_forward
-    return if next_station.nil?
+    return unless next_station
     current_station.send_train(self)
     next_station.take_train(self)
     @station_index += 1
   end
 
   def go_back
-    return if previous_station.nil?
+    return unless previous_station
     current_station.send_train(self)
     previous_station.take_train(self)
     @station_index -= 1

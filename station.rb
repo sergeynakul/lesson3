@@ -15,7 +15,7 @@ class Station
 
 # Может возвращать список поездов на станции по типу (см. ниже): кол-во грузовых, пассажирских
   def list(type)
-    @trains.find_all { |train| train.type == type }
+    @trains.select { |train| train.type == type }
   end        
 # Может отправлять поезда (по одному за раз, при этом, поезд удаляется из списка поездов, находящихся на станции).
   def send_train(train)
